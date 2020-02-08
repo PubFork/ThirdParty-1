@@ -26,17 +26,8 @@ IF (CMAKE_BUILD_TYPE STREQUAL "")
     set(CMAKE_BUILD_TYPE "Release")
 ENDIF ()
 message("CMAKE_BUILD_TYPE TYPE = " ${CMAKE_BUILD_TYPE})
-#开启此命令选项，则远程日志会直接输出到stdout，cmake .. -DDEBUG=ON /  cmake .. -DDEBUG=OFF关闭
-IF ((DEBUG STREQUAL "ON") OR (DEBUG STREQUAL "on"))
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DDEBUG")
-ENDIF ()
 
 message("PLATFORM = " ${PLATFORM}, ${CMAKE_BUILD_TYPE})
-
-#编译的可执行程序输出目录
-# set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-# set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-# set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 # #工程INSTALL目录
 # if (UNIX)
@@ -45,15 +36,10 @@ message("PLATFORM = " ${PLATFORM}, ${CMAKE_BUILD_TYPE})
 #     set(INSTALL_PREFIX C:\\thirdparty)
 # endif ()
 
-# install(DIRECTORY include/ DESTINATION include)
-# install(DIRECTORY lib/${LIBPATH}/ DESTINATION lib)
+set(CMAKE_INSTALL_PREFIX "${CMAKE_SOURCE_DIR}/../..")
 
-# set(CMAKE_INSTALL_PREFIX "${INSTALL_PREFIX}")
-# set(LIB_INSTALL "lib/")
-# set(INC_INSTALL "include/")
+install(DIRECTORY include/ DESTINATION include)
+install(DIRECTORY lib/${LIBPATH}/ DESTINATION lib)
 
-# message("install dir = " ${CMAKE_INSTALL_PREFIX})
+message("install dir = " ${CMAKE_INSTALL_PREFIX})
 
-# #第三方库
-# set(THIRD_PARTY_INC "${PROJECT_SOURCE_DIR}/include")
-# set(THIRD_PARTY_LIB "${PROJECT_SOURCE_DIR}/lib")
