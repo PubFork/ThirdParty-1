@@ -14,7 +14,7 @@ var cos = new COS({
 });
 
 cos.putObject({
-    Bucket: 'ars-thirdpart-1300910346',
+    Bucket: 'tars-thirdpart-1300910346',
     Region: 'ap-guangzhou',    
     Key: Key,      
     StorageClass: 'STANDARD',
