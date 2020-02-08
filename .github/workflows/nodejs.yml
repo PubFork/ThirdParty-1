@@ -17,8 +17,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: wget https://github.com/TarsCloud/ThirdParty/archive/master.zip
-    - run: ls .
-    - run: npm test
+    - run: git clone https://github.com/TarsCloud/ThirdParty.git
+    - run: FILE=`date +"%Y%m%d%H%M%S"` && tar czfv ThirdParty-${FILE}.tgz ThirdParty
+    - run: npm i cos-nodejs-sdk-v5 -g
+    - run: node ThirdParty/upload.js ${{ secrets.SecretId }} ${{ secrets.SecretKey }} ${FILE} 
       env:
         CI: true
