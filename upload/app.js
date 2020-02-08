@@ -4,8 +4,9 @@ const fs = require('fs');
  
 let SecretId = process.argv[2];
 let SecretKey = process.argv[3];
-let Key = 'src/' + process.argv[4];
-let File = '../../ThirdParty-' + process.argv[4] + '.tgz';
+let FileName = process.argv[4] + '.tgz';
+let Key = 'src/' + FileName;
+let FilePath = '../../ThirdParty-' + FileName;
 
 var cos = new COS({
     SecretId: SecretId,
@@ -17,7 +18,7 @@ cos.putObject({
     Region: 'ap-guangzhou',    
     Key: Key,      
     StorageClass: 'STANDARD',
-    Body: fs.createReadStream(File), 
+    Body: fs.createReadStream(FilePath), 
     onProgress: function(progressData) {
         console.log(JSON.stringify(progressData));
     }

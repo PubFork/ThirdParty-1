@@ -18,7 +18,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: git clone https://github.com/TarsCloud/ThirdParty.git && ls 
-    - run: export FILE=`date +"%Y%m%d%H%M%S"` && tar czfv ThirdParty-${FILE}.tgz ThirdParty && ls
-    - run: cd ThirdParty/upload && npm install && npm start ${{ secrets.SecretId }} ${{ secrets.SecretKey }} ${FILE} 
+    - run: export FILE=`date +"%Y%m%d%H%M%S"` && tar czfv ThirdParty-${FILE}.tgz ThirdParty && ThirdParty/upload && npm install && npm start ${{ secrets.SecretId }} ${{ secrets.SecretKey }} ${FILE} 
       env:
         CI: true
