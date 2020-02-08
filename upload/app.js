@@ -5,7 +5,7 @@ const fs = require('fs');
 let SecretId = process.argv[2];
 let SecretKey = process.argv[3];
 let Key = 'src/' + process.argv[4];
-let File = '../../' + process.argv[4] + '.tgz';
+let File = '../../ThirdParty-' + process.argv[4] + '.tgz';
 
 var cos = new COS({
     SecretId: SecretId,
