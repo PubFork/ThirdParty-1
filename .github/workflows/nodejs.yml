@@ -19,7 +19,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: git clone https://github.com/TarsCloud/ThirdParty.git
     - run: FILE=`date +"%Y%m%d%H%M%S"` && tar czfv ThirdParty-${FILE}.tgz ThirdParty
-    - run: npm i cos-nodejs-sdk-v5 -g
-    - run: node ThirdParty/upload.js ${{ secrets.SecretId }} ${{ secrets.SecretKey }} ${FILE} 
+    - run: cd ThirdParty/upload && npm install
+    - run: npm start ${{ secrets.SecretId }} ${{ secrets.SecretKey }} ${FILE} 
       env:
         CI: true

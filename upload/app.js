@@ -1,21 +1,23 @@
 
 var COS = require('cos-nodejs-sdk-v5');
-// const yargs = require('yargs');
+const fs = require('fs');
  
-// let argv = yargs.argv;
+let SecretId = process.argv[2];
+let SecretKey = process.argv[3];
+let Key = 'src/' + process.argv[4];
+let File = '../../' + process.argv[4] + '.tgz';
 
-process.argv[2];
 var cos = new COS({
-    SecretId: process.argv[1],
-    SecretKey: process.argv[2]
+    SecretId: SecretId,
+    SecretKey: SecretKey
 });
 
 cos.putObject({
     Bucket: 'ars-thirdpart-1300910346',
     Region: 'ap-guangzhou',    
-    Key: process.argv[3],      
+    Key: Key,      
     StorageClass: 'STANDARD',
-    Body: fs.createReadStream(process.argv[3] + ''.tgz), 
+    Body: fs.createReadStream(File), 
     onProgress: function(progressData) {
         console.log(JSON.stringify(progressData));
     }
