@@ -17,7 +17,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: git clone https://github.com/TarsCloud/ThirdParty.git && ls 
+    - run: git clone https://github.com/TarsCloud/ThirdParty.git
     - run: export FILE=`date +"%Y%m%d%H%M%S"` && tar czfv ThirdParty-${FILE}.tgz ThirdParty && cd ThirdParty/upload && npm install && npm start ${{ secrets.SecretId }} ${{ secrets.SecretKey }} ${FILE} 
       env:
         CI: true
