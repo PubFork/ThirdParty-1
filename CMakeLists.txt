@@ -1,9 +1,7 @@
-# CMake 最低版本号要求
 cmake_minimum_required(VERSION 2.8.3)
-# 项目信 息
+
 project(thirdparty)
 
-#平台
 IF (WIN32)
     MESSAGE(STATUS "This is Windows.")
     set(PLATFORM "win")
@@ -20,14 +18,14 @@ ELSE ()
     MESSAGE(STATUS "================ ERROR: This platform is unsupported!!! ================")
 ENDIF (WIN32)
 
-#编译选项 Release 还是 Debug
-set(CMAKE_BUILD_TYPE "Release" CACHE STRING "set build type to release default")
-IF (CMAKE_BUILD_TYPE STREQUAL "")
-    set(CMAKE_BUILD_TYPE "Release")
-ENDIF ()
-message("CMAKE_BUILD_TYPE TYPE = " ${CMAKE_BUILD_TYPE})
+# #编译选项 Release 还是 Debug
+# set(CMAKE_BUILD_TYPE "Release" CACHE STRING "set build type to release default")
+# IF (CMAKE_BUILD_TYPE STREQUAL "")
+#     set(CMAKE_BUILD_TYPE "Release")
+# ENDIF ()
+# message("CMAKE_BUILD_TYPE TYPE = " ${CMAKE_BUILD_TYPE})
 
-message("PLATFORM = " ${PLATFORM}, ${CMAKE_BUILD_TYPE})
+message("PLATFORM = " ${PLATFORM}, ${CMAKE_SOURCE_DIR})
 
 # #工程INSTALL目录
 # if (UNIX)
