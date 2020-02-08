@@ -34,26 +34,26 @@ ENDIF ()
 message("PLATFORM = " ${PLATFORM}, ${CMAKE_BUILD_TYPE})
 
 #编译的可执行程序输出目录
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+# set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+# set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+# set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-#工程INSTALL目录
-if (UNIX)
-    set(INSTALL_PREFIX /usr/local/thirdparty)
-else ()
-    set(INSTALL_PREFIX C:\\thirdparty)
-endif ()
+# #工程INSTALL目录
+# if (UNIX)
+#     set(INSTALL_PREFIX /usr/local/thirdparty)
+# else ()
+#     set(INSTALL_PREFIX C:\\thirdparty)
+# endif ()
 
-install(DIRECTORY include/ DESTINATION include)
-install(DIRECTORY lib/${LIBPATH}/ DESTINATION lib)
+# install(DIRECTORY include/ DESTINATION include)
+# install(DIRECTORY lib/${LIBPATH}/ DESTINATION lib)
 
-set(CMAKE_INSTALL_PREFIX "${INSTALL_PREFIX}")
-set(LIB_INSTALL "lib/")
-set(INC_INSTALL "include/")
+# set(CMAKE_INSTALL_PREFIX "${INSTALL_PREFIX}")
+# set(LIB_INSTALL "lib/")
+# set(INC_INSTALL "include/")
 
-message("install dir = " ${CMAKE_INSTALL_PREFIX})
+# message("install dir = " ${CMAKE_INSTALL_PREFIX})
 
-#第三方库
-set(THIRD_PARTY_INC "${PROJECT_SOURCE_DIR}/include")
-set(THIRD_PARTY_LIB "${PROJECT_SOURCE_DIR}/lib")
+# #第三方库
+# set(THIRD_PARTY_INC "${PROJECT_SOURCE_DIR}/include")
+# set(THIRD_PARTY_LIB "${PROJECT_SOURCE_DIR}/lib")
